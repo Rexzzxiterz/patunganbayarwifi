@@ -84,7 +84,7 @@
             <div class="mb-8">
                 <div class="flex justify-between mb-2">
                     <span class="text-sm font-medium text-gray-700">Progress Patungan</span>
-                    <span class="text-sm font-medium text-blue-600" id="progress-percent">0%</span>
+                    <span class="text-sm font-medium text-blue-600" id="progress-amount">Rp 0 / Rp 275.000</span>
                 </div>
                 <div class="w-full bg-gray-200 rounded-full">
                     <div id="progress-bar" class="progress-bar bg-blue-600" style="width: 0%" data-current="0" data-target="275000"></div>
@@ -261,7 +261,7 @@
         const selectedMemberDiv = document.getElementById('selected-member');
         const memberNameSpan = document.getElementById('member-name');
         const progressBar = document.getElementById('progress-bar');
-        const progressPercent = document.getElementById('progress-percent');
+        const progressAmount = document.getElementById('progress-amount');
         const familyCards = document.querySelectorAll('.family-card');
         
         // Vote buttons
@@ -308,127 +308,4 @@
         
         // Set target amount (275,000 for WiFi every 14 days)
         const targetAmount = 275000;
-        progressBar.setAttribute('data-target', targetAmount);
-        
-        // Functions
-        function selectMember(member) {
-            state.selectedMember = member;
-            
-            // Highlight selected card
-            familyCards.forEach(card => {
-                card.classList.remove('active-user');
-                if (card.id === `${member}-card`) {
-                    card.classList.add('active-user');
-                }
-            });
-            
-            // Show selected member
-            selectedMemberDiv.classList.remove('hidden');
-            memberNameSpan.textContent = getMemberName(member);
-            
-            validateForm();
-        }
-        
-        function getMemberName(member) {
-            const names = {
-                ayah: 'Ayah',
-                mama: 'Mama',
-                anak: 'Anak Laki-laki',
-                nenek: 'Nenek'
-            };
-            return names[member];
-        }
-        
-        function validateForm() {
-            if (state.selectedMember && amountInput.value && !isNaN(amountInput.value) && amountInput.value > 0) {
-                contributeBtn.disabled = false;
-            } else {
-                contributeBtn.disabled = true;
-            }
-        }
-        
-        function addContribution() {
-            const amount = parseInt(amountInput.value);
-            
-            if (!state.selectedMember || isNaN(amount) || amount <= 0) return;
-            
-            // Add vote for the member
-            state.votes[state.selectedMember]++;
-            state.totalVotes++;
-            updateVoteDisplay();
-            
-            // Add contribution
-            state.contributions[state.selectedMember] += amount;
-            state.totalContributed += amount;
-            
-            // Update UI
-            updateAmountDisplays();
-            updateProgressBar();
-            
-            // Reset form
-            amountInput.value = '';
-            state.selectedMember = null;
-            selectedMemberDiv.classList.add('hidden');
-            familyCards.forEach(card => card.classList.remove('active-user'));
-            contributeBtn.disabled = true;
-            
-            // Show success message
-            showSuccess('Kontribusi Berhasil', `Rp ${amount.toLocaleString('id-ID')} telah ditambahkan untuk ${getMemberName(state.selectedMember)}`);
-            
-            // Check if target reached
-            if (state.totalContributed >= targetAmount) {
-                setTimeout(() => {
-                    showSuccess('Target Tercapai!', `Selamat! Patungan WiFi untuk 14 hari ke depan telah terkumpul.`);
-                }, 1000);
-            }
-        }
-        
-        function updateAmountDisplays() {
-            ayahAmount.textContent = formatCurrency(state.contributions.ayah);
-            mamaAmount.textContent = formatCurrency(state.contributions.mama);
-            anakAmount.textContent = formatCurrency(state.contributions.anak);
-            nenekAmount.textContent = formatCurrency(state.contributions.nenek);
-        }
-        
-        function updateVoteDisplay() {
-            ayahVotes.textContent = `${state.votes.ayah} votes`;
-            mamaVotes.textContent = `${state.votes.mama} votes`;
-            anakVotes.textContent = `${state.votes.anak} votes`;
-            nenekVotes.textContent = `${state.votes.nenek} votes`;
-            
-            ayahVoteBar.style.width = state.totalVotes > 0 ? `${(state.votes.ayah / state.totalVotes) * 100}%` : '0%';
-            mamaVoteBar.style.width = state.totalVotes > 0 ? `${(state.votes.mama / state.totalVotes) * 100}%` : '0%';
-            anakVoteBar.style.width = state.totalVotes > 0 ? `${(state.votes.anak / state.totalVotes) * 100}%` : '0%';
-            nenekVoteBar.style.width = state.totalVotes > 0 ? `${(state.votes.nenek / state.totalVotes) * 100}%` : '0%';
-        }
-        
-        function updateProgressBar() {
-            const progressPercentage = (state.totalContributed / targetAmount) * 100;
-            progressBar.style.width = `${progressPercentage}%`;
-            progressPercent.textContent = `${Math.min(100, Math.round(progressPercentage))}%`;
-        }
-        
-        function showSuccess(title, message) {
-            successTitle.textContent = title;
-            successMessage.textContent = message;
-            successModal.classList.remove('hidden');
-        }
-        
-        function resetVotes() {
-            state.votes = {
-                ayah: 0,
-                mama: 0,
-                anak: 0,
-                nenek: 0
-            };
-            state.totalVotes = 0;
-            updateVoteDisplay();
-        }
-        
-        function formatCurrency(amount) {
-            return `Rp ${amount.toLocaleString('id-ID')}`;
-        }
-    </script>
-</body>
-</html>
-
+        progressBar.setAttribute('data
