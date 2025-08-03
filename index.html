@@ -306,7 +306,7 @@
         closeModal.addEventListener('click', () => successModal.classList.add('hidden'));
         resetVotesBtn.addEventListener('click', resetVotes);
         
-        // Set target amount (150,000 for WiFi every 14 days)
+        // Set target amount (275,000 for WiFi every 14 days)
         const targetAmount = 275000;
         progressBar.setAttribute('data-target', targetAmount);
         
@@ -378,7 +378,7 @@
             // Check if target reached
             if (state.totalContributed >= targetAmount) {
                 setTimeout(() => {
-                    showSuccess('Target Tercapai!', `Selamat! Tabungan WiFi untuk 14 hari ke depan telah terkumpul.`);
+                    showSuccess('Target Tercapai!', `Selamat! Patungan WiFi untuk 14 hari ke depan telah terkumpul.`);
                 }, 1000);
             }
         }
