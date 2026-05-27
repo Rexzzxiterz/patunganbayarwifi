@@ -1,17 +1,23 @@
 const dino = document.getElementById("dino");
 const cactus = document.getElementById("cactus");
 const scoreText = document.getElementById("score");
+const highText = document.getElementById("high");
+const info = document.getElementById("info");
+const gameover = document.getElementById("gameover");
+const restart = document.getElementById("restart");
 
-// HIGH SCORE
+let score = 0;
+let started = false;
+let dead = false;
+
 let highScore =
 localStorage.getItem("highscore") || 0;
 
-// TAMPILKAN HIGH SCORE
-document.getElementById("high").innerText =
+highText.innerText =
 "HI " +
 String(highScore).padStart(5,'0');
 
-// SOUND
+/* SOUND */
 const jumpSound = new Audio(
 "https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"
 );
@@ -20,11 +26,7 @@ const hitSound = new Audio(
 "https://assets.mixkit.co/active_storage/sfx/2220/2220-preview.mp3"
 );
 
-let score = 0;
-let started = false;
-let dead = false;
-
-// LOMPAT
+/* JUMP */
 function jump(){
 
   if(dino.classList != "jump"){
@@ -43,7 +45,7 @@ function jump(){
 
 }
 
-// START GAME
+/* START */
 function startGame(){
 
   if(!started){
@@ -52,6 +54,8 @@ function startGame(){
 
     cactus.classList.add("cactus-move");
 
+    info.style.display = "none";
+
     setInterval(()=>{
 
       if(!dead){
@@ -59,18 +63,20 @@ function startGame(){
         score++;
 
         scoreText.innerText =
-          String(score).padStart(5,'0');
+        String(score).padStart(5,'0');
 
       }
 
-    },200);
+    },150);
 
   }
 
 }
 
-// CONTROL
+/* CONTROL */
 function control(){
+
+  if(dead) return;
 
   startGame();
 
@@ -78,7 +84,7 @@ function control(){
 
 }
 
-// KEYBOARD
+/* KEYBOARD */
 window.addEventListener("keydown",(e)=>{
 
   if(e.code === "Space"){
@@ -89,33 +95,32 @@ window.addEventListener("keydown",(e)=>{
 
 });
 
-// TOUCH HP
+/* TOUCH */
 window.addEventListener("touchstart",()=>{
 
   control();
 
 });
 
-// DETEKSI TABRAKAN
-let isAlive = setInterval(()=>{
+/* COLLISION */
+setInterval(()=>{
 
   let dinoBottom =
-    parseInt(
-      window.getComputedStyle(dino)
-      .getPropertyValue("bottom")
-    );
+  parseInt(
+  window.getComputedStyle(dino)
+  .getPropertyValue("bottom")
+  );
 
   let cactusRight =
-    parseInt(
-      window.getComputedStyle(cactus)
-      .getPropertyValue("right")
-    );
+  parseInt(
+  window.getComputedStyle(cactus)
+  .getPropertyValue("right")
+  );
 
-  // COLLISION
   if(
-    cactusRight > 880 &&
-    cactusRight < 950 &&
-    dinoBottom < 80
+  cactusRight > 860 &&
+  cactusRight < 950 &&
+  dinoBottom < 90
   ){
 
     dead = true;
@@ -124,29 +129,25 @@ let isAlive = setInterval(()=>{
 
     hitSound.play();
 
-    // SAVE HIGH SCORE
     if(score > highScore){
 
       localStorage.setItem(
-        "highscore",
-        score
+      "highscore",
+      score
       );
 
     }
 
-    setTimeout(()=>{
-
-      alert(
-        "Game Over!\n\n" +
-        "Score: " + score +
-        "\nHigh Score: " +
-        localStorage.getItem("highscore")
-      );
-
-      location.reload();
-
-    },200);
+    gameover.style.display = "block";
+    restart.style.display = "block";
 
   }
 
 },10);
+
+/* RESTART */
+restart.onclick = ()=>{
+
+  location.reload();
+
+}
