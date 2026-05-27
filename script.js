@@ -1,43 +1,53 @@
-const dino = document.getElementById("dino");
-const cactus = document.getElementById("cactus");
+const dino =
+document.getElementById("dino");
 
-const scoreText = document.getElementById("score");
-const highText = document.getElementById("high");
+const cactus =
+document.getElementById("cactus");
 
-const info = document.getElementById("info");
+const scoreText =
+document.getElementById("score");
 
-const gameover = document.getElementById("gameover");
+const highText =
+document.getElementById("high");
 
-const restart = document.getElementById("restart");
+const panel =
+document.getElementById("startPanel");
 
-/* SCORE */
-let score = 0;
+const gameover =
+document.getElementById("gameover");
+
+const restart =
+document.getElementById("restart");
 
 let started = false;
-
 let dead = false;
 
-/* HIGH SCORE */
+let score = 0;
+
 let highScore =
 localStorage.getItem("highscore") || 0;
 
 highText.innerText =
 "HI " +
-String(highScore).padStart(5,'0');
+String(highScore).padStart(5,"0");
 
 /* SOUND */
-const jumpSound = new Audio(
+const jumpSound =
+new Audio(
 "https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"
 );
 
-const hitSound = new Audio(
+const hitSound =
+new Audio(
 "https://assets.mixkit.co/active_storage/sfx/2220/2220-preview.mp3"
 );
 
-/* LOMPAT */
+/* JUMP */
 function jump(){
 
-  if(dino.classList != "jump"){
+  if(
+    !dino.classList.contains("jump")
+  ){
 
     jumpSound.play();
 
@@ -53,7 +63,7 @@ function jump(){
 
 }
 
-/* START GAME */
+/* START */
 function startGame(){
 
   if(!started){
@@ -62,7 +72,7 @@ function startGame(){
 
     cactus.classList.add("cactus-move");
 
-    info.style.display = "none";
+    panel.style.display = "none";
 
     setInterval(()=>{
 
@@ -71,11 +81,12 @@ function startGame(){
         score++;
 
         scoreText.innerText =
-        String(score).padStart(5,'0');
+        String(score)
+        .padStart(5,"0");
 
       }
 
-    },150);
+    },120);
 
   }
 
@@ -93,7 +104,9 @@ function control(){
 }
 
 /* KEYBOARD */
-window.addEventListener("keydown",(e)=>{
+window.addEventListener(
+"keydown",
+(e)=>{
 
   if(e.code === "Space"){
 
@@ -103,8 +116,10 @@ window.addEventListener("keydown",(e)=>{
 
 });
 
-/* TOUCH HP */
-window.addEventListener("touchstart",()=>{
+/* MOBILE */
+window.addEventListener(
+"touchstart",
+()=>{
 
   control();
 
@@ -128,9 +143,12 @@ setInterval(()=>{
   );
 
   if(
-    cactusRight > 860 &&
-    cactusRight < 950 &&
-    dinoBottom < 90
+
+    cactusRight > 1450 &&
+    cactusRight < 1560 &&
+
+    dinoBottom < 220
+
   ){
 
     dead = true;
@@ -139,7 +157,6 @@ setInterval(()=>{
 
     hitSound.play();
 
-    /* SAVE HIGH SCORE */
     if(score > highScore){
 
       localStorage.setItem(
@@ -149,9 +166,7 @@ setInterval(()=>{
 
     }
 
-    gameover.style.display = "block";
-
-    restart.style.display = "block";
+    gameover.style.display = "flex";
 
   }
 
