@@ -23,7 +23,7 @@ body{
   overflow:hidden;
 }
 
-/* GARIS TANAH */
+/* TANAH */
 .ground{
   position:absolute;
   bottom:50px;
@@ -34,40 +34,42 @@ body{
 
 /* DINO PIXEL ASLI */
 #dino{
-  width:44px;
-  height:47px;
   position:absolute;
   left:50px;
   bottom:52px;
+  width:64px;
+  height:64px;
+
   image-rendering:pixelated;
 
   background:
 
   /* kepala */
-  linear-gradient(#dcdcdc,#dcdcdc) 12px 0/20px 4px no-repeat,
-  linear-gradient(#dcdcdc,#dcdcdc) 8px 4px/28px 4px no-repeat,
-  linear-gradient(#dcdcdc,#dcdcdc) 4px 8px/32px 4px no-repeat,
-  linear-gradient(#dcdcdc,#dcdcdc) 0 12px/36px 4px no-repeat,
-  linear-gradient(#dcdcdc,#dcdcdc) 0 16px/36px 4px no-repeat,
-  linear-gradient(#dcdcdc,#dcdcdc) 0 20px/28px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 24px 0/16px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 20px 4px/24px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 16px 8px/32px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 12px 12px/40px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 8px 16px/48px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 8px 20px/48px 4px no-repeat,
 
   /* mata */
-  linear-gradient(#1d1f27,#1d1f27) 24px 12px/4px 4px no-repeat,
+  linear-gradient(#1d1f27,#1d1f27) 40px 20px/4px 4px no-repeat,
 
   /* mulut */
-  linear-gradient(#1d1f27,#1d1f27) 4px 20px/8px 4px no-repeat,
+  linear-gradient(#1d1f27,#1d1f27) 8px 24px/12px 4px no-repeat,
 
   /* badan */
-  linear-gradient(#dcdcdc,#dcdcdc) 8px 24px/24px 4px no-repeat,
-  linear-gradient(#dcdcdc,#dcdcdc) 8px 28px/24px 4px no-repeat,
-  linear-gradient(#dcdcdc,#dcdcdc) 12px 32px/20px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 16px 24px/32px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 16px 28px/32px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 20px 32px/28px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 20px 36px/28px 4px no-repeat,
 
   /* tangan */
-  linear-gradient(#dcdcdc,#dcdcdc) 0 28px/8px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 8px 28px/8px 4px no-repeat,
 
   /* kaki */
-  linear-gradient(#dcdcdc,#dcdcdc) 12px 36px/4px 8px no-repeat,
-  linear-gradient(#dcdcdc,#dcdcdc) 24px 36px/4px 8px no-repeat;
+  linear-gradient(#dcdcdc,#dcdcdc) 20px 40px/4px 16px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 36px 40px/4px 16px no-repeat;
 
   background-color:transparent;
 }
@@ -76,17 +78,10 @@ body{
 #cactus{
   width:30px;
   height:60px;
+  background:#999;
   position:absolute;
   bottom:52px;
   right:-60px;
-
-  background:
-
-  linear-gradient(#8f8f8f,#8f8f8f) 10px 0/10px 60px no-repeat,
-  linear-gradient(#8f8f8f,#8f8f8f) 0 20px/10px 10px no-repeat,
-  linear-gradient(#8f8f8f,#8f8f8f) 20px 10px/10px 10px no-repeat,
-  linear-gradient(#8f8f8f,#8f8f8f) 0 20px/5px 20px no-repeat,
-  linear-gradient(#8f8f8f,#8f8f8f) 25px 10px/5px 20px no-repeat;
 }
 
 /* GERAK KAKTUS */
