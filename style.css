@@ -1,3 +1,4 @@
+/* RESET */
 *{
   margin:0;
   padding:0;
@@ -5,6 +6,7 @@
   font-family:Arial, sans-serif;
 }
 
+/* BODY */
 body{
   background:#1d1f27;
   overflow:hidden;
@@ -15,6 +17,7 @@ body{
   color:white;
 }
 
+/* GAME */
 .game{
   width:1000px;
   max-width:95%;
@@ -32,44 +35,55 @@ body{
   background:#888;
 }
 
-/* DINO PIXEL ASLI */
+/* DINO PIXEL */
 #dino{
   position:absolute;
   left:50px;
   bottom:52px;
-  width:64px;
-  height:64px;
+  width:80px;
+  height:80px;
 
   image-rendering:pixelated;
 
   background:
 
   /* kepala */
-  linear-gradient(#dcdcdc,#dcdcdc) 24px 0/16px 4px no-repeat,
-  linear-gradient(#dcdcdc,#dcdcdc) 20px 4px/24px 4px no-repeat,
-  linear-gradient(#dcdcdc,#dcdcdc) 16px 8px/32px 4px no-repeat,
-  linear-gradient(#dcdcdc,#dcdcdc) 12px 12px/40px 4px no-repeat,
-  linear-gradient(#dcdcdc,#dcdcdc) 8px 16px/48px 4px no-repeat,
-  linear-gradient(#dcdcdc,#dcdcdc) 8px 20px/48px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 28px 0/20px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 24px 4px/28px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 20px 8px/36px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 16px 12px/44px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 12px 16px/52px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 12px 20px/52px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 12px 24px/40px 4px no-repeat,
 
   /* mata */
-  linear-gradient(#1d1f27,#1d1f27) 40px 20px/4px 4px no-repeat,
+  linear-gradient(#1d1f27,#1d1f27) 44px 20px/4px 4px no-repeat,
 
   /* mulut */
-  linear-gradient(#1d1f27,#1d1f27) 8px 24px/12px 4px no-repeat,
+  linear-gradient(#1d1f27,#1d1f27) 12px 28px/12px 4px no-repeat,
+
+  /* leher */
+  linear-gradient(#dcdcdc,#dcdcdc) 36px 28px/16px 4px no-repeat,
 
   /* badan */
-  linear-gradient(#dcdcdc,#dcdcdc) 16px 24px/32px 4px no-repeat,
-  linear-gradient(#dcdcdc,#dcdcdc) 16px 28px/32px 4px no-repeat,
-  linear-gradient(#dcdcdc,#dcdcdc) 20px 32px/28px 4px no-repeat,
-  linear-gradient(#dcdcdc,#dcdcdc) 20px 36px/28px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 24px 32px/32px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 20px 36px/36px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 20px 40px/36px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 24px 44px/32px 4px no-repeat,
 
   /* tangan */
-  linear-gradient(#dcdcdc,#dcdcdc) 8px 28px/8px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 12px 36px/8px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 8px 40px/8px 4px no-repeat,
 
-  /* kaki */
-  linear-gradient(#dcdcdc,#dcdcdc) 20px 40px/4px 16px no-repeat,
-  linear-gradient(#dcdcdc,#dcdcdc) 36px 40px/4px 16px no-repeat;
+  /* ekor */
+  linear-gradient(#dcdcdc,#dcdcdc) 56px 36px/8px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 60px 40px/8px 4px no-repeat,
+
+  /* kaki kiri */
+  linear-gradient(#dcdcdc,#dcdcdc) 24px 48px/4px 16px no-repeat,
+
+  /* kaki kanan */
+  linear-gradient(#dcdcdc,#dcdcdc) 44px 48px/4px 16px no-repeat;
 
   background-color:transparent;
 }
