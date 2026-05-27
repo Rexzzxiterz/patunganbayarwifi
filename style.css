@@ -32,13 +32,46 @@ body{
 }
 
 #dino{
-  width:50px;
-  height:50px;
-  background:#dcdcdc;
+  /* DINO PIXEL ASLI */
+
+#dino{
+  width:44px;
+  height:47px;
   position:absolute;
   left:50px;
   bottom:52px;
-  border-radius:5px;
+  image-rendering:pixelated;
+
+  background:
+  
+  /* kepala */
+  #dcdcdc 12px 0/20px 4px no-repeat,
+  #dcdcdc 8px 4px/28px 4px no-repeat,
+  #dcdcdc 4px 8px/32px 4px no-repeat,
+  #dcdcdc 0 12px/36px 4px no-repeat,
+  #dcdcdc 0 16px/36px 4px no-repeat,
+  #dcdcdc 0 20px/28px 4px no-repeat,
+
+  /* mata */
+  #1d1f27 24px 12px/4px 4px no-repeat,
+
+  /* mulut */
+  #1d1f27 4px 20px/8px 4px no-repeat,
+
+  /* badan */
+  #dcdcdc 8px 24px/24px 4px no-repeat,
+  #dcdcdc 8px 28px/24px 4px no-repeat,
+  #dcdcdc 12px 32px/20px 4px no-repeat,
+
+  /* tangan */
+  #dcdcdc 0 28px/8px 4px no-repeat,
+
+  /* kaki */
+  #dcdcdc 12px 36px/4px 8px no-repeat,
+  #dcdcdc 24px 36px/4px 8px no-repeat;
+
+  background-color:transparent;
+}
 }
 
 #cactus{
