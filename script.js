@@ -1,15 +1,23 @@
 const dino = document.getElementById("dino");
 const cactus = document.getElementById("cactus");
+
 const scoreText = document.getElementById("score");
 const highText = document.getElementById("high");
+
 const info = document.getElementById("info");
+
 const gameover = document.getElementById("gameover");
+
 const restart = document.getElementById("restart");
 
+/* SCORE */
 let score = 0;
+
 let started = false;
+
 let dead = false;
 
+/* HIGH SCORE */
 let highScore =
 localStorage.getItem("highscore") || 0;
 
@@ -26,7 +34,7 @@ const hitSound = new Audio(
 "https://assets.mixkit.co/active_storage/sfx/2220/2220-preview.mp3"
 );
 
-/* JUMP */
+/* LOMPAT */
 function jump(){
 
   if(dino.classList != "jump"){
@@ -45,7 +53,7 @@ function jump(){
 
 }
 
-/* START */
+/* START GAME */
 function startGame(){
 
   if(!started){
@@ -95,7 +103,7 @@ window.addEventListener("keydown",(e)=>{
 
 });
 
-/* TOUCH */
+/* TOUCH HP */
 window.addEventListener("touchstart",()=>{
 
   control();
@@ -107,20 +115,22 @@ setInterval(()=>{
 
   let dinoBottom =
   parseInt(
-  window.getComputedStyle(dino)
-  .getPropertyValue("bottom")
+    window
+    .getComputedStyle(dino)
+    .getPropertyValue("bottom")
   );
 
   let cactusRight =
   parseInt(
-  window.getComputedStyle(cactus)
-  .getPropertyValue("right")
+    window
+    .getComputedStyle(cactus)
+    .getPropertyValue("right")
   );
 
   if(
-  cactusRight > 860 &&
-  cactusRight < 950 &&
-  dinoBottom < 90
+    cactusRight > 860 &&
+    cactusRight < 950 &&
+    dinoBottom < 90
   ){
 
     dead = true;
@@ -129,16 +139,18 @@ setInterval(()=>{
 
     hitSound.play();
 
+    /* SAVE HIGH SCORE */
     if(score > highScore){
 
       localStorage.setItem(
-      "highscore",
-      score
+        "highscore",
+        score
       );
 
     }
 
     gameover.style.display = "block";
+
     restart.style.display = "block";
 
   }
