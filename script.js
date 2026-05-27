@@ -2,6 +2,24 @@ const dino = document.getElementById("dino");
 const cactus = document.getElementById("cactus");
 const scoreText = document.getElementById("score");
 
+// HIGH SCORE
+let highScore =
+localStorage.getItem("highscore") || 0;
+
+// TAMPILKAN HIGH SCORE
+document.getElementById("high").innerText =
+"HI " +
+String(highScore).padStart(5,'0');
+
+// SOUND
+const jumpSound = new Audio(
+"https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"
+);
+
+const hitSound = new Audio(
+"https://assets.mixkit.co/active_storage/sfx/2220/2220-preview.mp3"
+);
+
 let score = 0;
 let started = false;
 let dead = false;
@@ -10,6 +28,8 @@ let dead = false;
 function jump(){
 
   if(dino.classList != "jump"){
+
+    jumpSound.play();
 
     dino.classList.add("jump");
 
@@ -102,9 +122,30 @@ let isAlive = setInterval(()=>{
 
     cactus.style.animation = "none";
 
-    alert("Game Over! Score: " + score);
+    hitSound.play();
 
-    location.reload();
+    // SAVE HIGH SCORE
+    if(score > highScore){
+
+      localStorage.setItem(
+        "highscore",
+        score
+      );
+
+    }
+
+    setTimeout(()=>{
+
+      alert(
+        "Game Over!\n\n" +
+        "Score: " + score +
+        "\nHigh Score: " +
+        localStorage.getItem("highscore")
+      );
+
+      location.reload();
+
+    },200);
 
   }
 
