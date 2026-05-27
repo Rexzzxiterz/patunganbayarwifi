@@ -95,6 +95,11 @@ body{
   opacity:0.8;
 }
 
+#high{
+  top:60px;
+  opacity:0.5;
+}
+
 .title{
   position:absolute;
   top:20px;
