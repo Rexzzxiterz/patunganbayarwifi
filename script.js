@@ -24,7 +24,7 @@ let score = 0;
 let started = false;
 let dead = false;
 
-// FUNCTION LOMPAT
+// LOMPAT
 function jump(){
 
   if(dino.classList != "jump"){
@@ -69,7 +69,7 @@ function startGame(){
 
 }
 
-// CONTROL GAME
+// CONTROL
 function control(){
 
   startGame();
