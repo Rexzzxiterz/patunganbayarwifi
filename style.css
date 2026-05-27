@@ -23,6 +23,7 @@ body{
   overflow:hidden;
 }
 
+/* GARIS TANAH */
 .ground{
   position:absolute;
   bottom:50px;
@@ -31,9 +32,7 @@ body{
   background:#888;
 }
 
-#dino{
-  /* DINO PIXEL ASLI */
-
+/* DINO PIXEL ASLI */
 #dino{
   width:44px;
   height:47px;
@@ -43,46 +42,54 @@ body{
   image-rendering:pixelated;
 
   background:
-  
+
   /* kepala */
-  #dcdcdc 12px 0/20px 4px no-repeat,
-  #dcdcdc 8px 4px/28px 4px no-repeat,
-  #dcdcdc 4px 8px/32px 4px no-repeat,
-  #dcdcdc 0 12px/36px 4px no-repeat,
-  #dcdcdc 0 16px/36px 4px no-repeat,
-  #dcdcdc 0 20px/28px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 12px 0/20px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 8px 4px/28px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 4px 8px/32px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 0 12px/36px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 0 16px/36px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 0 20px/28px 4px no-repeat,
 
   /* mata */
-  #1d1f27 24px 12px/4px 4px no-repeat,
+  linear-gradient(#1d1f27,#1d1f27) 24px 12px/4px 4px no-repeat,
 
   /* mulut */
-  #1d1f27 4px 20px/8px 4px no-repeat,
+  linear-gradient(#1d1f27,#1d1f27) 4px 20px/8px 4px no-repeat,
 
   /* badan */
-  #dcdcdc 8px 24px/24px 4px no-repeat,
-  #dcdcdc 8px 28px/24px 4px no-repeat,
-  #dcdcdc 12px 32px/20px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 8px 24px/24px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 8px 28px/24px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 12px 32px/20px 4px no-repeat,
 
   /* tangan */
-  #dcdcdc 0 28px/8px 4px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 0 28px/8px 4px no-repeat,
 
   /* kaki */
-  #dcdcdc 12px 36px/4px 8px no-repeat,
-  #dcdcdc 24px 36px/4px 8px no-repeat;
+  linear-gradient(#dcdcdc,#dcdcdc) 12px 36px/4px 8px no-repeat,
+  linear-gradient(#dcdcdc,#dcdcdc) 24px 36px/4px 8px no-repeat;
 
   background-color:transparent;
 }
-}
 
+/* KAKTUS */
 #cactus{
   width:30px;
   height:60px;
-  background:#999;
   position:absolute;
   bottom:52px;
   right:-60px;
+
+  background:
+
+  linear-gradient(#8f8f8f,#8f8f8f) 10px 0/10px 60px no-repeat,
+  linear-gradient(#8f8f8f,#8f8f8f) 0 20px/10px 10px no-repeat,
+  linear-gradient(#8f8f8f,#8f8f8f) 20px 10px/10px 10px no-repeat,
+  linear-gradient(#8f8f8f,#8f8f8f) 0 20px/5px 20px no-repeat,
+  linear-gradient(#8f8f8f,#8f8f8f) 25px 10px/5px 20px no-repeat;
 }
 
+/* GERAK KAKTUS */
 .cactus-move{
   animation:cactusMove 1.4s linear infinite;
 }
@@ -99,6 +106,7 @@ body{
 
 }
 
+/* LOMPAT */
 .jump{
   animation:jump 0.7s linear;
 }
@@ -119,6 +127,7 @@ body{
 
 }
 
+/* SCORE */
 .score{
   position:absolute;
   top:20px;
@@ -133,6 +142,7 @@ body{
   opacity:0.5;
 }
 
+/* TITLE */
 .title{
   position:absolute;
   top:20px;
@@ -141,6 +151,7 @@ body{
   opacity:0.8;
 }
 
+/* INFO */
 .info{
   position:absolute;
   width:100%;
@@ -150,6 +161,7 @@ body{
   opacity:0.7;
 }
 
+/* BULAN */
 .moon{
   position:absolute;
   top:20px;
