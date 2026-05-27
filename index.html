@@ -1,60 +1,76 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dino Runner PRO</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dino Runner PRO</title>
 
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="game">
 
-<!-- Bintang -->
-<div class="bg-stars"></div>
+  <!-- HUD -->
+  <div class="top-ui">
 
-<!-- Bulan -->
-<div class="moon"></div>
+    <div class="logo">
+      NO INTERNET
+    </div>
 
-<!-- Judul -->
-<div class="title">
-NO INTERNET
-</div>
+    <div class="score-box">
+      <div id="score">00000</div>
+      <div id="high">HI 00000</div>
+    </div>
 
-<!-- Score -->
-<div class="score" id="score">
-00000
-</div>
+  </div>
 
-<!-- High Score -->
-<div class="score" id="high">
-HI 00000
-</div>
+  <!-- START PANEL -->
+  <div class="start-panel" id="startPanel">
 
-<!-- Info -->
-<div class="info" id="info">
-TEKAN SPASI / TAP
-</div>
+    <h1>
+      TEKAN SPASI / TAP UNTUK BERMAIN
+    </h1>
 
-<!-- Game Over -->
-<div class="game-over" id="gameover">
-GAME OVER
-</div>
+    <div class="controls">
 
-<!-- Restart -->
-<button class="restart" id="restart">
-RESTART
-</button>
+      <div class="control-box">
+        SPACE
+      </div>
 
-<!-- Tanah -->
-<div class="ground"></div>
+      <span>LOMPAT</span>
 
-<!-- Dino -->
-<div id="dino"></div>
+    </div>
 
-<!-- Kaktus -->
-<div id="cactus"></div>
+    <div class="controls">
+
+      <div class="control-box">
+        TAP
+      </div>
+
+      <span>HP CONTROL</span>
+
+    </div>
+
+  </div>
+
+  <!-- GAME -->
+  <div class="ground"></div>
+
+  <div id="dino"></div>
+
+  <div id="cactus"></div>
+
+  <!-- GAME OVER -->
+  <div class="game-over" id="gameover">
+
+    GAME OVER
+
+    <button id="restart">
+      RESTART
+    </button>
+
+  </div>
 
 </div>
 
