@@ -5,136 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dino Runner</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
-    }
-
-    body{
-      background:#1d1f27;
-      overflow:hidden;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-      color:white;
-    }
-
-    .game{
-      width:1000px;
-      max-width:95%;
-      height:300px;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .ground{
-      position:absolute;
-      bottom:50px;
-      width:100%;
-      height:2px;
-      background:#888;
-    }
-
-    #dino{
-      width:50px;
-      height:50px;
-      background:#dcdcdc;
-      position:absolute;
-      left:50px;
-      bottom:52px;
-      border-radius:5px;
-    }
-
-    #cactus{
-      width:30px;
-      height:60px;
-      background:#999;
-      position:absolute;
-      bottom:52px;
-      right:-60px;
-    }
-
-    .cactus-move{
-      animation:cactusMove 1.4s linear infinite;
-    }
-
-    @keyframes cactusMove{
-      0%{
-        right:-60px;
-      }
-      100%{
-        right:110%;
-      }
-    }
-
-    .jump{
-      animation:jump 0.7s linear;
-    }
-
-    @keyframes jump{
-      0%{
-        bottom:52px;
-      }
-
-      50%{
-        bottom:180px;
-      }
-
-      100%{
-        bottom:52px;
-      }
-    }
-
-    .score{
-      position:absolute;
-      top:20px;
-      right:20px;
-      font-size:30px;
-      letter-spacing:3px;
-      opacity:0.8;
-    }
-
-    .title{
-      position:absolute;
-      top:20px;
-      left:20px;
-      font-size:35px;
-      opacity:0.8;
-    }
-
-    .info{
-      position:absolute;
-      width:100%;
-      text-align:center;
-      top:110px;
-      font-size:28px;
-      opacity:0.7;
-    }
-
-    .moon{
-      position:absolute;
-      top:20px;
-      right:200px;
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      box-shadow:15px 0 0 0 #3b3d46;
-      opacity:0.6;
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="game">
 
-  <div class="title">NO INTERNET</div>
+  <div class="title">
+    NO INTERNET
+  </div>
 
-  <div class="score" id="score">00000</div>
+  <div class="score" id="score">
+    00000
+  </div>
+
+  <div class="score" id="high">
+    HI 00000
+  </div>
 
   <div class="moon"></div>
 
@@ -150,103 +37,7 @@
 
 </div>
 
-<script>
-
-const dino = document.getElementById("dino");
-const cactus = document.getElementById("cactus");
-const scoreText = document.getElementById("score");
-
-let score = 0;
-let started = false;
-let dead = false;
-
-function jump(){
-
-  if(dino.classList != "jump"){
-
-    dino.classList.add("jump");
-
-    setTimeout(()=>{
-      dino.classList.remove("jump");
-    },700);
-
-  }
-
-}
-
-function startGame(){
-
-  if(!started){
-
-    started = true;
-
-    cactus.classList.add("cactus-move");
-
-    setInterval(()=>{
-
-      if(!dead){
-
-        score++;
-
-        scoreText.innerText = String(score).padStart(5,'0');
-
-      }
-
-    },200);
-
-  }
-
-}
-
-function control(){
-
-  startGame();
-
-  jump();
-
-}
-
-window.addEventListener("keydown",(e)=>{
-
-  if(e.code === "Space"){
-
-    control();
-
-  }
-
-});
-
-window.addEventListener("touchstart",()=>{
-
-  control();
-
-});
-
-let isAlive = setInterval(()=>{
-
-  let dinoBottom =
-    parseInt(window.getComputedStyle(dino)
-    .getPropertyValue("bottom"));
-
-  let cactusRight =
-    parseInt(window.getComputedStyle(cactus)
-    .getPropertyValue("right"));
-
-  if(cactusRight > 880 && cactusRight < 950 && dinoBottom < 80){
-
-    dead = true;
-
-    cactus.style.animation = "none";
-
-    alert("Game Over! Score: " + score);
-
-    location.reload();
-
-  }
-
-},10);
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
