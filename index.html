@@ -1,80 +1,150 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dino Runner PRO</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Money Planner Pelajar</title>
 
-  <link rel="stylesheet" href="style.css">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+}
+
+.container{
+    width:90%;
+    max-width:500px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 0 25px rgba(0,0,0,.4);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.input-group{
+    margin-bottom:15px;
+}
+
+label{
+    display:block;
+    margin-bottom:5px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#22c55e;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.result{
+    margin-top:20px;
+    display:none;
+}
+
+.card{
+    background:rgba(255,255,255,.08);
+    padding:15px;
+    border-radius:15px;
+    margin-bottom:10px;
+}
+
+.money{
+    font-size:22px;
+    font-weight:bold;
+    color:#22c55e;
+}
+</style>
 </head>
 <body>
 
-<div class="game">
+<div class="container">
+    <h1>💰 Money Planner</h1>
 
-  <!-- HUD -->
-  <div class="top-ui">
-
-    <div class="logo">
-      NO INTERNET
+    <div class="input-group">
+        <label>Uang Saku</label>
+        <input type="number" id="uang" value="20000">
     </div>
 
-    <div class="score-box">
-      <div id="score">00000</div>
-      <div id="high">HI 00000</div>
+    <div class="input-group">
+        <label>Harga Kuota</label>
+        <input type="number" id="kuota" value="12000">
     </div>
 
-  </div>
+    <button onclick="hitung()">Hitung</button>
 
-  <!-- START PANEL -->
-  <div class="start-panel" id="startPanel">
+    <div class="result" id="hasil">
+        <div class="card">
+            <h3>📶 Kuota</h3>
+            <div class="money" id="kuotaHasil"></div>
+        </div>
 
-    <h1>
-      TEKAN SPASI / TAP UNTUK BERMAIN
-    </h1>
+        <div class="card">
+            <h3>🥇 Investasi Emas</h3>
+            <div class="money" id="emasHasil"></div>
+        </div>
 
-    <div class="controls">
-
-      <div class="control-box">
-        SPACE
-      </div>
-
-      <span>LOMPAT</span>
-
+        <div class="card">
+            <h3>📈 Estimasi 20 Hari Sekolah</h3>
+            <div class="money" id="bulanHasil"></div>
+        </div>
     </div>
-
-    <div class="controls">
-
-      <div class="control-box">
-        TAP
-      </div>
-
-      <span>HP CONTROL</span>
-
-    </div>
-
-  </div>
-
-  <!-- GAME -->
-  <div class="ground"></div>
-
-  <div id="dino"></div>
-
-  <div id="cactus"></div>
-
-  <!-- GAME OVER -->
-  <div class="game-over" id="gameover">
-
-    GAME OVER
-
-    <button id="restart">
-      RESTART
-    </button>
-
-  </div>
-
 </div>
 
-<script src="script.js"></script>
+<script>
+function rupiah(angka){
+    return "Rp " + angka.toLocaleString("id-ID");
+}
+
+function hitung(){
+    const uang = parseInt(document.getElementById("uang").value) || 0;
+    const kuota = parseInt(document.getElementById("kuota").value) || 0;
+
+    const investasi = uang - kuota;
+
+    if(investasi < 0){
+        alert("Uang saku tidak cukup untuk membeli kuota!");
+        return;
+    }
+
+    document.getElementById("kuotaHasil").innerText = rupiah(kuota);
+    document.getElementById("emasHasil").innerText = rupiah(investasi);
+    document.getElementById("bulanHasil").innerText = rupiah(investasi * 20);
+
+    document.getElementById("hasil").style.display = "block";
+}
+
+hitung();
+</script>
 
 </body>
 </html>
