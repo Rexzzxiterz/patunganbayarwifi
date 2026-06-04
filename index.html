@@ -1,305 +1,34 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MoneyGold - Pelajar Investor</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-background:#0a0f1f;
-color:#fff;
-min-height:100vh;
-padding:20px;
-}
-
-.bg{
-position:fixed;
-width:500px;
-height:500px;
-border-radius:50%;
-filter:blur(120px);
-opacity:.2;
-z-index:-1;
-}
-
-.bg1{
-background:#ffd700;
-top:-100px;
-right:-100px;
-}
-
-.bg2{
-background:#00d4ff;
-bottom:-100px;
-left:-100px;
-}
-
-.container{
-max-width:1100px;
-margin:auto;
-}
-
-.header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:25px;
-}
-
-.logo{
-font-size:28px;
-font-weight:700;
-background:linear-gradient(90deg,#ffd700,#fff2a8);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.card{
-background:rgba(255,255,255,.05);
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,.1);
-border-radius:24px;
-padding:25px;
-box-shadow:0 0 30px rgba(0,0,0,.2);
-}
-
-.hero{
-background:linear-gradient(135deg,#ffd700,#c89b00);
-color:#111;
-}
-
-.hero h2{
-font-size:30px;
-}
-
-.hero p{
-margin-top:8px;
-opacity:.8;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-margin-top:20px;
-}
-
-.stat{
-text-align:center;
-}
-
-.stat h3{
-font-size:14px;
-opacity:.7;
-}
-
-.stat span{
-font-size:28px;
-font-weight:700;
-}
-
-.form{
-margin-top:20px;
-display:grid;
-gap:15px;
-}
-
-input{
-width:100%;
-padding:14px;
-border:none;
-border-radius:14px;
-background:#111827;
-color:white;
-font-size:16px;
-}
-
-button{
-padding:14px;
-border:none;
-border-radius:14px;
-cursor:pointer;
-font-weight:600;
-font-size:16px;
-background:linear-gradient(135deg,#ffd700,#ffb800);
-color:black;
-}
-
-.progress{
-height:18px;
-background:#111827;
-border-radius:999px;
-overflow:hidden;
-margin-top:10px;
-}
-
-.progress-bar{
-height:100%;
-width:0%;
-background:linear-gradient(90deg,#ffd700,#fff0a0);
-transition:.5s;
-}
-
-.label{
-display:flex;
-justify-content:space-between;
-margin-top:8px;
-font-size:14px;
-}
-
-.footer{
-margin-top:20px;
-text-align:center;
-opacity:.6;
-}
-
-.glow{
-box-shadow:0 0 25px rgba(255,215,0,.35);
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Reward</title>
 </head>
 <body>
 
-<div class="bg bg1"></div>
-<div class="bg bg2"></div>
+    <h1>Referral Reward</h1>
 
-<div class="container">
+    <p>Kode Referral:</p>
+    <h2>ABC123XYZ</h2>
 
-<div class="header">
-<div class="logo">💰 MoneyGold</div>
-<div>Pelajar Investor</div>
-</div>
+    <form>
+        <input type="text" placeholder="Username">
+        <br><br>
 
-<div class="card hero glow">
-<h2>Target Investasi Emas</h2>
-<p>Dari uang saku Rp20.000 dan kuota Rp12.000</p>
-</div>
+        <input type="text" placeholder="ID Akun">
+        <br><br>
 
-<div class="grid">
+        <input type="text" placeholder="Nomor DANA">
+        <br><br>
 
-<div class="card stat">
-<h3>Uang Saku</h3>
-<span id="uangDisplay">Rp20.000</span>
-</div>
+        <input type="file">
+        <br><br>
 
-<div class="card stat">
-<h3>Biaya Kuota</h3>
-<span id="kuotaDisplay">Rp12.000</span>
-</div>
-
-<div class="card stat">
-<h3>Investasi/Hari</h3>
-<span id="investasiDisplay">Rp8.000</span>
-</div>
-
-<div class="card stat">
-<h3>20 Hari Sekolah</h3>
-<span id="bulanDisplay">Rp160.000</span>
-</div>
-
-</div>
-
-<div class="card form">
-
-<h3>Hitung Ulang</h3>
-
-<input type="number" id="uang" value="20000" placeholder="Uang saku">
-
-<input type="number" id="kuota" value="12000" placeholder="Biaya kuota">
-
-<input type="number" id="target" value="1000000" placeholder="Target tabungan emas">
-
-<button onclick="hitung()">💎 Hitung Investasi</button>
-
-<div>
-<h3>Progress Target</h3>
-
-<div class="progress">
-<div class="progress-bar" id="bar"></div>
-</div>
-
-<div class="label">
-<span id="persen">0%</span>
-<span id="targetText">Target Rp1.000.000</span>
-</div>
-</div>
-
-</div>
-
-<div class="footer">
-MoneyGold © 2026
-</div>
-
-</div>
-
-<script>
-function rupiah(n){
-return "Rp" + n.toLocaleString("id-ID");
-}
-
-function hitung(){
-
-let uang = parseInt(document.getElementById('uang').value)||0;
-let kuota = parseInt(document.getElementById('kuota').value)||0;
-let target = parseInt(document.getElementById('target').value)||1;
-
-let investasi = uang - kuota;
-
-if(investasi < 0){
-alert("Uang saku tidak cukup.");
-return;
-}
-
-let total20Hari = investasi * 20;
-
-document.getElementById('uangDisplay').innerText = rupiah(uang);
-document.getElementById('kuotaDisplay').innerText = rupiah(kuota);
-document.getElementById('investasiDisplay').innerText = rupiah(investasi);
-document.getElementById('bulanDisplay').innerText = rupiah(total20Hari);
-
-let persen = Math.min((total20Hari/target)*100,100);
-
-document.getElementById('bar').style.width = persen + "%";
-document.getElementById('persen').innerText =
-persen.toFixed(1)+"%";
-
-document.getElementById('targetText').innerText =
-"Target " + rupiah(target);
-
-localStorage.setItem("uang",uang);
-localStorage.setItem("kuota",kuota);
-localStorage.setItem("target",target);
-}
-
-window.onload=()=>{
-if(localStorage.getItem("uang")){
-document.getElementById("uang").value=
-localStorage.getItem("uang");
-}
-
-if(localStorage.getItem("kuota")){
-document.getElementById("kuota").value=
-localStorage.getItem("kuota");
-}
-
-if(localStorage.getItem("target")){
-document.getElementById("target").value=
-localStorage.getItem("target");
-}
-
-hitung();
-}
-</script>
+        <button type="submit">
+            Kirim Bukti
+        </button>
+    </form>
 
 </body>
 </html>
