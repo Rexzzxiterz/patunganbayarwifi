@@ -1,1 +1,169 @@
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
+/* Body */
+body{
+    background:#0f172a;
+    color:white;
+    min-height:100vh;
+}
+
+/* Container */
+.container{
+    max-width:800px;
+    margin:auto;
+    padding:20px;
+}
+
+/* Card */
+.card{
+    background:#1e293b;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 0 20px rgba(0,0,0,.3);
+}
+
+/* Title */
+.title{
+    text-align:center;
+    font-size:2rem;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+/* Referral Box */
+.referral-box{
+    background:#0f172a;
+    border:2px solid #22c55e;
+    border-radius:10px;
+    padding:15px;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.referral-code{
+    color:#22c55e;
+    font-size:1.8rem;
+    font-weight:bold;
+}
+
+/* Form */
+form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    outline:none;
+    background:#334155;
+    color:white;
+}
+
+input::placeholder{
+    color:#cbd5e1;
+}
+
+/* Button */
+button{
+    background:#22c55e;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+button:hover{
+    background:#16a34a;
+}
+
+/* Status */
+.status-box{
+    margin-top:25px;
+    background:#0f172a;
+    padding:15px;
+    border-radius:10px;
+}
+
+.status-item{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+}
+
+.pending{
+    color:#facc15;
+}
+
+.approved{
+    color:#22c55e;
+}
+
+.paid{
+    color:#3b82f6;
+}
+
+.rejected{
+    color:#ef4444;
+}
+
+/* Admin Table */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table th{
+    background:#334155;
+    padding:12px;
+}
+
+table td{
+    padding:12px;
+    border-bottom:1px solid #475569;
+}
+
+/* Admin Buttons */
+.btn-approve{
+    background:#22c55e;
+    padding:8px 12px;
+    border-radius:6px;
+    margin-right:5px;
+}
+
+.btn-paid{
+    background:#3b82f6;
+    padding:8px 12px;
+    border-radius:6px;
+}
+
+.btn-reject{
+    background:#ef4444;
+    padding:8px 12px;
+    border-radius:6px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+    .title{
+        font-size:1.5rem;
+    }
+
+    table{
+        display:block;
+        overflow-x:auto;
+    }
+
+}
